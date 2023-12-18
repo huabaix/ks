@@ -76,7 +76,6 @@
     Model.UI.audioDom = document.getElementById("audio");
     Model.UI.preDom = document.getElementById("pre");
     Model.UI.playDom = document.getElementById("play");
-    Model.UI.stopDom = document.getElementById("stop");
     Model.UI.nextDom = document.getElementById("next");
     Model.UI.logoDom = document.getElementById("logo");
     Model.UI.timeDom = document.getElementById("currentTime");
@@ -161,11 +160,14 @@
     Model.createAudioMenu = function(){
 	  let pDom ;
       let hDom;
+      let h1dom;
 	  let titles = mediaData.audioFiles[Model.i].titles ;
 	  let time = mediaData.audioFiles[Model.i].time ;
       let content=mediaData.audioFiles[Model.i].content ;
+      h1dom=document.createElement("h2") ;
+      h1dom.content="目录";
+      Model.UI.stageDom.appendChild(h1dom);
       hDom=document.createElement("span");
-	  console.log(titles) ;
 	  for(let i=0 ;i< titles.length ; i++){
 	     pDom = document.createElement("p") ;
          pDom.textContent = titles[i]  ;
@@ -189,9 +191,10 @@
 	 Model.removeAudioMenu = function(){
 	  let pDom ;
       let hDom;
+      let titles = mediaData.audioFiles[Model.i].titles ;
 	      pDom = document.querySelectorAll("div#stage p");
           Model.UI.imgBoxDom.style.display='block';
-	  for(let i=0;i<3;i++){
+	  for(let i=0;i<titles.length;i++){
          Model.UI.stageDom.removeChild(pDom[i]);
 	  }
       hDom = document.querySelector("div#userInfo span");
