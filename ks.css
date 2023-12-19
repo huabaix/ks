@@ -59,7 +59,29 @@ body{
     position: relative;
     width: 200px;
     height: 200px;
-    
+}
+.content video{
+    position: relative;
+    border: 10px solid rgba(255, 255, 255, 0.673);
+    width: 640px;
+    height: 360px;
+    border-radius: 20px;
+ }
+ .content .tag{
+    position: absolute;
+    width: 210px;
+    height: 45px;
+    border: 1px solid;
+    z-index: 999;
+    background-color: white;
+    left: 60%;
+    top: 20px;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 5px;
+    color: black;
 }
 .buttons{
     position: relative;
@@ -138,7 +160,7 @@ body{
     
 }
 .box{
-    width: 550px;
+    width: 36%;
 }
 div#stage p{
     position: relative;
@@ -155,26 +177,7 @@ div#stage p{
    text-align:center;
    background:rgba(255, 255, 255, 0.491);
  }
- .content video{
-    border: 10px solid rgba(255, 255, 255, 0.673);
-    border-radius: 20px;
- }
- .content .tag{
-    position: absolute;
-    width: 200px;
-    height: 45px;
-    border: 1px solid;
-    z-index: 999;
-    background-color: white;
-    left: 60%;
-    top: 20px;
-    border-radius: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    padding: 0px 5px;
-    color: black;
-}
+
 .niubi{
 position: absolute;
 top: 430px;
