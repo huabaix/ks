@@ -212,7 +212,7 @@
 //--------------------------------------------------
   
     // Model 
-  Model.init = function(){
+   Model.init = function(){
 	Model.UI.videoDom.src = Model.UI.videoDom.getURL(0);
     Model.UI.audioDom.src = Model.UI.audioDom.getURL(0);
 	
@@ -238,9 +238,9 @@
             length = Model.UI.audioDom.audioLength;
             file = Model.UI.audioDom;
             //更改目录
-            // Model.removeAudioMenu();
-            // Model.UI.switchDom.value = "Audio";
-			// Model.createAudioMenu();
+            Model.removeAudioMenu();
+            Model.UI.switchDom.value = "Audio";
+			Model.createAudioMenu();
         }
         // 业务处理
         if (i == 0) {
@@ -264,7 +264,7 @@
         let i = Model.i;
         let length = null;
         let file = null;
-
+       
         // 判断是视频文件还是音频文件
         if (Model.isVideo) {
             length = Model.UI.videoDom.videoLength;
@@ -273,20 +273,17 @@
         else {
             length = Model.UI.audioDom.audioLength;
             file = Model.UI.audioDom;
-           
-            // Model.removeAudioMenu();
-            // Model.UI.switchDom.value = "Audio";
-			// Model.createAudioMenu();
+            Model.removeAudioMenu();
+            Model.UI.switchDom.value = "Audio";
+			Model.createAudioMenu();
         }
-        
          // 业务处理
          if (i == length - 1) {
             i = 0;
+            }
+         else {
+             i++;
         }
-        else {
-            i++;
-        }
-       
         // 2.4 — — — —每次切换视频需要更新目录内容
         Model.showMediaNum(i);
         Model.i = i;
@@ -320,7 +317,12 @@
     // 切换媒体
     Model.UI.switchDom.onclick = function () {
         let file = null;
-        if (Model.isVideo) {
+        if(Model.i>4){
+            Model.UI.videoDom.pause();
+            Model.UI.playDom.innerHTML='<img src="./icon/play.svg" alt="">';
+            alert("音频只有四个4，超过音频数量咯")
+        }else{
+            if (Model.isVideo) {
             Model.UI.switchDom.value = "Audio";
 			Model.createAudioMenu();
             file = Model.UI.videoDom;
@@ -330,12 +332,14 @@
             Model.UI.playDom.innerHTML='<img src="./icon/play.svg" alt="">';
 			Model.removeAudioMenu();
             file = Model.UI.audioDom;
-           
         }
-		Model.switchMediaDom(); 
+        Model.switchMediaDom(); 
 		Model.isVideo = !Model.isVideo;
         file.src = file.getURL();
         Model.showMediaNum(Model.i);
+        }
+       
+		
 
     };
 	}; //Model.init 结束
