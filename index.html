@@ -34,11 +34,20 @@
     </div>
     <div class="buttons">
         <div class="box"></div>
-        <button value="上一个" class="pre" id="pre"> <svg t="1702276458170" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="18458" width="35" height="35"><path d="M98.31 483.06L654.05 162.2c22.43-12.95 50.47 3.24 50.47 29.14v641.71c0 25.9-28.04 42.09-50.47 29.14L98.31 541.34c-22.43-12.95-22.43-45.33 0-58.28z" fill="#ffffff" p-id="18459"></path><path d="M653.42 505.91L929.92 156c5.97-7.56 18.12-3.33 18.12 6.3v699.82c0 9.63-12.15 13.85-18.12 6.3L653.42 518.5a10.17 10.17 0 0 1 0-12.59z" fill="#ffffff" p-id="18460"></path></svg></button>
-        <button value="播放" class="play" id="play"><svg t="1702297177167" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13369" width="55" height="55"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#ffffff" p-id="13370"></path></svg></button>
-        <button value="下一个" class="next" id="next"><svg t="1702276423987" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="17228" width="35" height="35"><path d="M925.61 483.06L369.88 162.21c-22.43-12.95-50.47 3.24-50.47 29.14v641.71c0 25.9 28.04 42.09 50.47 29.14l555.74-320.86c22.43-12.95 22.43-45.33-0.01-58.28z" fill="#ffffff" p-id="17229"></path><path d="M370.5 505.91L94 156c-5.97-7.56-18.12-3.33-18.12 6.3v699.82c0 9.63 12.15 13.85 18.12 6.3L370.5 518.5c2.92-3.69 2.92-8.9 0-12.59z" fill="#ffffff" p-id="17230"></path></svg></button>
-        <!-- <button value="暂停" class="pause" id="stop"><svg t="1702297131284" class="icon" viewBox="0 0 1048 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10216" width="55" height="55"><path d="M524.272128 0.018022C241.513165 0.018022 12.288102 229.245952 12.288102 512.005018c0 112.734003 36.43904 216.957952 98.17897 301.537997l38.667981-40.258048C97.458176 699.230003 67.143168 609.158963 67.143168 512.005018 67.143168 259.540992 271.807078 54.872986 524.272128 54.872986c252.45696 0 457.120973 204.668006 457.120973 457.132032 0 252.460954-204.664013 457.118003-457.120973 457.118003-96.240026 0-185.530982-29.744026-259.189043-80.53504l-34.539008 42.797978c83.150029 58.344038 184.437965 92.596019 293.728973 92.596019 282.758963 0 511.984026-229.220966 511.984026-511.976038C1036.256154 229.245952 807.031091 0.018022 524.272128 0.018022zM615.693107 256.011981l0 511.987 54.855 0L670.548107 256.012 615.693128 256.012zM377.996083 256.011981l0 511.987 54.855 0L432.851083 256.012 377.996128 256.012z" p-id="10217" fill="#ffffff"></path></svg></button> -->
-        <button id="switch" class="qh"><svg t="1702280433848" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7473" width="80" height="80"><path d="M448 832v64l-128.32-128L448 640v64h192a192 192 0 0 0 115.84-345.152l0.704-0.896 90.24-90.24A320 320 0 0 1 640 832l-192.064 0.064zM576 192V128l131.008 128L576 384V320H384a192 192 0 0 0-115.712 345.216l-91.072 91.008A320 320 0 0 1 384 192h192.064z" fill="#ffffff" p-id="7474"></path></svg></button>
+        
+        <button value="上一个" class="pre" id="pre">
+            <img src="./icon/next.svg" alt="">
+         </button>
+        <button value="播放" class="play" id="play">
+            <img src="./icon/play.svg" alt="">
+        </button>
+        <button value="下一个" class="next" id="next">
+            <img src="./icon/pre.svg" alt="">
+        </button>
+        <!-- <button value="暂停" class="pause" id="stop"></button> -->
+        <button id="switch" class="qh">
+            <img src="./icon/switch.svg" alt="">
+        </button>
     </div>  
     <div class="footer">
         <div class="one">
@@ -85,7 +94,7 @@
     Model.UI.audioDom.audioLength = mediaData.audioFiles.length;
     //在header中动态生成person
     Model.createPerson= function (){
-        for(let i=0 ;i< 5 ; i++){
+        for(let i=0 ;i< mediaData.imageUrl.length-1; i++){
             let personDiv=document.createElement("div");
             let imgDom=document.createElement("img");
             let pDom=document.createElement("p");
@@ -97,9 +106,9 @@
             Model.UI.headerDom.appendChild(personDiv);
         }
     }
-    
+ 
     Model.createPerson();
-        
+
     // Model.createPerson();
 
     Model.UI.videoDom.getURL = function () {
@@ -165,20 +174,20 @@
       let content=mediaData.audioFiles[Model.i].content ;
       hDom=document.createElement("span");
 	  for(let i=0 ;i< titles.length ; i++){
-	     pDom = document.createElement("p") ;
-         pDom.textContent = titles[i]  ;
-         pDom.onclick = function(){
-		   Model.UI.audioDom.currentTime =  time[i][0] ;
-		   console.log(Model.UI.audioDom.currentTime) ;
+	    pDom = document.createElement("p") ;
+        pDom.textContent = titles[i]  ;
+        pDom.onclick = function(){
+            Model.UI.audioDom.currentTime =  time[i][0] ;
+            console.log(Model.UI.audioDom.currentTime) ;
             Model.UI.imgBoxDom.style.display='none';
-           hDom.textContent=content[i];
-           Model.UI.userInfoDom.appendChild(hDom);
-           Model.UI.audioDom.play();
-           Model.UI.playDom.innerHTML='<svg t="1702297131284" class="icon" viewBox="0 0 1048 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10216" width="55" height="55"><path d="M524.272128 0.018022C241.513165 0.018022 12.288102 229.245952 12.288102 512.005018c0 112.734003 36.43904 216.957952 98.17897 301.537997l38.667981-40.258048C97.458176 699.230003 67.143168 609.158963 67.143168 512.005018 67.143168 259.540992 271.807078 54.872986 524.272128 54.872986c252.45696 0 457.120973 204.668006 457.120973 457.132032 0 252.460954-204.664013 457.118003-457.120973 457.118003-96.240026 0-185.530982-29.744026-259.189043-80.53504l-34.539008 42.797978c83.150029 58.344038 184.437965 92.596019 293.728973 92.596019 282.758963 0 511.984026-229.220966 511.984026-511.976038C1036.256154 229.245952 807.031091 0.018022 524.272128 0.018022zM615.693107 256.011981l0 511.987 54.855 0L670.548107 256.012 615.693128 256.012zM377.996083 256.011981l0 511.987 54.855 0L432.851083 256.012 377.996128 256.012z" p-id="10217" fill="#ffffff"></path></svg>';
-		   window.setTimeout(function(){
-		     Model.UI.audioDom.pause();
-		   } , (time[i][1] - time[i][0])*1000) ;
-		  
+            hDom.textContent=content[i];
+            Model.UI.userInfoDom.appendChild(hDom);
+            Model.UI.audioDom.play();
+            Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
+            window.setTimeout(function(){
+                Model.UI.audioDom.pause();
+            } , (time[i][1] - time[i][0])*1000) ;
+            
 		 };
          Model.UI.stageDom.appendChild(pDom);
 	  }
@@ -199,7 +208,6 @@
       }else{
         Model.UI.userInfoDom.removeChild(hDom);
       }
-     
 	};
 //--------------------------------------------------
   
@@ -229,6 +237,10 @@
         else {
             length = Model.UI.audioDom.audioLength;
             file = Model.UI.audioDom;
+            //更改目录
+            // Model.removeAudioMenu();
+            // Model.UI.switchDom.value = "Audio";
+			// Model.createAudioMenu();
         }
         // 业务处理
         if (i == 0) {
@@ -242,44 +254,17 @@
 		Model.showMediaNum(i);
         Model.i = i;
         file.src = file.getURL();
-        Model.UI.playDom.innerHTML='<svg t="1702297131284" class="icon" viewBox="0 0 1048 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10216" width="55" height="55"><path d="M524.272128 0.018022C241.513165 0.018022 12.288102 229.245952 12.288102 512.005018c0 112.734003 36.43904 216.957952 98.17897 301.537997l38.667981-40.258048C97.458176 699.230003 67.143168 609.158963 67.143168 512.005018 67.143168 259.540992 271.807078 54.872986 524.272128 54.872986c252.45696 0 457.120973 204.668006 457.120973 457.132032 0 252.460954-204.664013 457.118003-457.120973 457.118003-96.240026 0-185.530982-29.744026-259.189043-80.53504l-34.539008 42.797978c83.150029 58.344038 184.437965 92.596019 293.728973 92.596019 282.758963 0 511.984026-229.220966 511.984026-511.976038C1036.256154 229.245952 807.031091 0.018022 524.272128 0.018022zM615.693107 256.011981l0 511.987 54.855 0L670.548107 256.012 615.693128 256.012zM377.996083 256.011981l0 511.987 54.855 0L432.851083 256.012 377.996128 256.012z" p-id="10217" fill="#ffffff"></path></svg>';
+        Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
         file.play();
-    }
-    // 定义播放按钮
-    Model.UI.playDom.onclick = function () {
-        if (Model.isVideo) {
-            if(Model.UI.videoDom.paused){
-                Model.UI.videoDom.play();
-                Model.UI.playDom.innerHTML='<svg t="1702297131284" class="icon" viewBox="0 0 1048 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10216" width="55" height="55"><path d="M524.272128 0.018022C241.513165 0.018022 12.288102 229.245952 12.288102 512.005018c0 112.734003 36.43904 216.957952 98.17897 301.537997l38.667981-40.258048C97.458176 699.230003 67.143168 609.158963 67.143168 512.005018 67.143168 259.540992 271.807078 54.872986 524.272128 54.872986c252.45696 0 457.120973 204.668006 457.120973 457.132032 0 252.460954-204.664013 457.118003-457.120973 457.118003-96.240026 0-185.530982-29.744026-259.189043-80.53504l-34.539008 42.797978c83.150029 58.344038 184.437965 92.596019 293.728973 92.596019 282.758963 0 511.984026-229.220966 511.984026-511.976038C1036.256154 229.245952 807.031091 0.018022 524.272128 0.018022zM615.693107 256.011981l0 511.987 54.855 0L670.548107 256.012 615.693128 256.012zM377.996083 256.011981l0 511.987 54.855 0L432.851083 256.012 377.996128 256.012z" p-id="10217" fill="#ffffff"></path></svg>';
-            }else{
-                Model.UI.videoDom.pause();
-                Model.UI.playDom.innerHTML='<svg t="1702297177167" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13369" width="55" height="55"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#ffffff" p-id="13370"></path></svg>';
-            }
-        } else {
-            if(Model.UI.audioDom.paused){
-                Model.UI.audioDom.play();
-                Model.UI.playDom.innerHTML='<svg t="1702297131284" class="icon" viewBox="0 0 1048 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10216" width="55" height="55"><path d="M524.272128 0.018022C241.513165 0.018022 12.288102 229.245952 12.288102 512.005018c0 112.734003 36.43904 216.957952 98.17897 301.537997l38.667981-40.258048C97.458176 699.230003 67.143168 609.158963 67.143168 512.005018 67.143168 259.540992 271.807078 54.872986 524.272128 54.872986c252.45696 0 457.120973 204.668006 457.120973 457.132032 0 252.460954-204.664013 457.118003-457.120973 457.118003-96.240026 0-185.530982-29.744026-259.189043-80.53504l-34.539008 42.797978c83.150029 58.344038 184.437965 92.596019 293.728973 92.596019 282.758963 0 511.984026-229.220966 511.984026-511.976038C1036.256154 229.245952 807.031091 0.018022 524.272128 0.018022zM615.693107 256.011981l0 511.987 54.855 0L670.548107 256.012 615.693128 256.012zM377.996083 256.011981l0 511.987 54.855 0L432.851083 256.012 377.996128 256.012z" p-id="10217" fill="#ffffff"></path></svg>';
-            }else{
-                Model.UI.audioDom.pause();
-                Model.UI.playDom.innerHTML='<svg t="1702297177167" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13369" width="55" height="55"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#ffffff" p-id="13370"></path></svg>';
-            }
-        }
-
     };
-    // // 定义暂停按钮
-    // Model.UI.stopDom.onclick = function () {
-    //     if (Model.isVideo) {
-    //         Model.UI.videoDom.pause();
-    //     } else {
-    //         Model.UI.audioDom.pause();
-    //     }
-    // }
-    // 定义向后按钮
-    Model.UI.nextDom.onclick = function () {
+
+       // 定义向后按钮
+       Model.UI.nextDom.onclick = function () {
         // 定义局部变量
         let i = Model.i;
         let length = null;
         let file = null;
+
         // 判断是视频文件还是音频文件
         if (Model.isVideo) {
             length = Model.UI.videoDom.videoLength;
@@ -288,38 +273,70 @@
         else {
             length = Model.UI.audioDom.audioLength;
             file = Model.UI.audioDom;
+           
+            // Model.removeAudioMenu();
+            // Model.UI.switchDom.value = "Audio";
+			// Model.createAudioMenu();
         }
-        // 业务处理
-        if (i == length - 1) {
+        
+         // 业务处理
+         if (i == length - 1) {
             i = 0;
         }
         else {
             i++;
         }
+       
         // 2.4 — — — —每次切换视频需要更新目录内容
         Model.showMediaNum(i);
         Model.i = i;
         file.src = file.getURL();
-        Model.UI.playDom.innerHTML='<svg t="1702297131284" class="icon" viewBox="0 0 1048 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10216" width="55" height="55"><path d="M524.272128 0.018022C241.513165 0.018022 12.288102 229.245952 12.288102 512.005018c0 112.734003 36.43904 216.957952 98.17897 301.537997l38.667981-40.258048C97.458176 699.230003 67.143168 609.158963 67.143168 512.005018 67.143168 259.540992 271.807078 54.872986 524.272128 54.872986c252.45696 0 457.120973 204.668006 457.120973 457.132032 0 252.460954-204.664013 457.118003-457.120973 457.118003-96.240026 0-185.530982-29.744026-259.189043-80.53504l-34.539008 42.797978c83.150029 58.344038 184.437965 92.596019 293.728973 92.596019 282.758963 0 511.984026-229.220966 511.984026-511.976038C1036.256154 229.245952 807.031091 0.018022 524.272128 0.018022zM615.693107 256.011981l0 511.987 54.855 0L670.548107 256.012 615.693128 256.012zM377.996083 256.011981l0 511.987 54.855 0L432.851083 256.012 377.996128 256.012z" p-id="10217" fill="#ffffff"></path></svg>';
+        Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
         file.play();
-        
     };
+    // 定义播放按钮
+    Model.UI.playDom.onclick = function () {
+        if (Model.isVideo) {
+            if(Model.UI.videoDom.paused){
+                Model.UI.videoDom.play();
+                Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
+            }else{
+                Model.UI.videoDom.pause();
+                Model.UI.playDom.innerHTML='<img src="./icon/play.svg" alt="">';
+            }
+        } else {
+            if(Model.UI.audioDom.paused){
+                Model.UI.audioDom.play();
+                Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
+            }else{
+                Model.UI.audioDom.pause();
+                Model.UI.playDom.innerHTML='<img src="./icon/play.svg" alt="">';
+            }
+        }
+
+    };
+
+
     // 切换媒体
     Model.UI.switchDom.onclick = function () {
+        let file = null;
         if (Model.isVideo) {
             Model.UI.switchDom.value = "Audio";
 			Model.createAudioMenu();
+            file = Model.UI.videoDom;
         }
         else {
             Model.UI.switchDom.value = "Video";
-            Model.UI.playDom.innerHTML='<svg t="1702297177167" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13369" width="55" height="55"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#ffffff" p-id="13370"></path></svg>';
+            Model.UI.playDom.innerHTML='<img src="./icon/play.svg" alt="">';
 			Model.removeAudioMenu();
+            file = Model.UI.audioDom;
            
         }
 		Model.switchMediaDom(); 
 		Model.isVideo = !Model.isVideo;
-        Model.i = 0;
+        file.src = file.getURL();
         Model.showMediaNum(Model.i);
+
     };
 	}; //Model.init 结束
  Model.init() ;
