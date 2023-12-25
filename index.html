@@ -167,6 +167,7 @@
     } ;
 
     Model.createAudioMenu = function(){
+
 	  let pDom ;
       let hDom;
 	  let titles = mediaData.audioFiles[Model.i].titles ;
@@ -176,6 +177,9 @@
 	  for(let i=0 ;i< titles.length ; i++){
 	    pDom = document.createElement("p") ;
         pDom.textContent = titles[i]  ;
+        Model.UI.stageDom.appendChild(pDom);
+
+        //点击pDom生成字幕
         pDom.onclick = function(){
             Model.UI.audioDom.currentTime =  time[i][0] ;
             console.log(Model.UI.audioDom.currentTime) ;
@@ -189,7 +193,7 @@
             } , (time[i][1] - time[i][0])*1000) ;
             
 		 };
-         Model.UI.stageDom.appendChild(pDom);
+         
 	  }
      
 	};
@@ -200,7 +204,8 @@
 	      pDom = document.querySelectorAll("div#stage p");
           Model.UI.imgBoxDom.style.display='block';
 	  for(let i=0;i<titles.length;i++){
-         Model.UI.stageDom.removeChild(pDom[i]);
+        //  Model.UI.stageDom.removeChild(pDom[i]);
+        pDom[i].remove();
 	  }
       hDom = document.querySelector("div#userInfo span");
       if(hDom==null){
@@ -237,10 +242,7 @@
         else {
             length = Model.UI.audioDom.audioLength;
             file = Model.UI.audioDom;
-            //更改目录
-            Model.removeAudioMenu();
             Model.UI.switchDom.value = "Audio";
-			Model.createAudioMenu();
         }
         // 业务处理
         if (i == 0) {
@@ -254,6 +256,10 @@
 		Model.showMediaNum(i);
         Model.i = i;
         file.src = file.getURL();
+        if (!Model.isVideo){
+            Model.removeAudioMenu();
+            Model.createAudioMenu();
+        }
         Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
         file.play();
     };
@@ -273,9 +279,7 @@
         else {
             length = Model.UI.audioDom.audioLength;
             file = Model.UI.audioDom;
-            Model.removeAudioMenu();
             Model.UI.switchDom.value = "Audio";
-			Model.createAudioMenu();
         }
          // 业务处理
          if (i == length - 1) {
@@ -285,9 +289,14 @@
              i++;
         }
         // 2.4 — — — —每次切换视频需要更新目录内容
+
         Model.showMediaNum(i);
         Model.i = i;
         file.src = file.getURL();
+        if (!Model.isVideo){
+            Model.removeAudioMenu();
+            Model.createAudioMenu();
+        }
         Model.UI.playDom.innerHTML='<img src="./icon/pause.svg" alt="">';
         file.play();
     };
